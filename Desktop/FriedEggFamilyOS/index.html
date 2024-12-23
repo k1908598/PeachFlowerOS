@@ -24,7 +24,8 @@
         padding:16px; 
         top:50%; left:50%; 
         transform: translate(-50%,-50%);
-        background-color: rgba(0,0,0,0.125);">
+        background-color: rgba(0,0,0,0.125);
+        flex-direction: column;">
         <!--when i did top and left 50%, it didnt work. but when i use translate(-50%,-50%), it wored!-->
 
         <div id="welcomeheader" style="width:100%;
@@ -33,6 +34,9 @@
         align-items: center;
         cursor: move;
         justify-content: center;">
+
+        <p style = "cursor: pointer" id = "welcomeclose">Close</p>
+
             <p style="margin:0px; color:#fff; font-weight:500">
                 Handle;
             </p>
@@ -40,7 +44,7 @@
         </div>
 
 
-        <h1>LeonaOS</h1>
+        <h1 style = "cursor: pointer" id = "welcomeopen">LeonaOS</h1>
         <h3>LeonaOS is a system that features some part of Leona's memories in 2024 on <dfn>Planet Earth, Solar System
                 and Milky Way Galaxy</dfn></h3>
         <p><dfn>shhhhhhhhhhhh,</dfn> this is a gift to Leona, don't tell her</p>
