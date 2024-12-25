@@ -61,13 +61,16 @@ function startDragging(e, element) {
     initialX = e.clientX;
     initialY = e.clientY;
 
-    document.onmousedown = stopDragging;
-    document.onmousedown = dragHandler;
+    document.onmouseup = stopDragging;
+    document.onmousemove = dragHandler;
 }
 
 function dragHandler(e) {
     e = e || window.event;
     e.preventDefault();
+
+    if (!draggedElement)  return;
+    
 
     currentX = initialX - e.clientX;
     currentY = initialY - e.clientY;

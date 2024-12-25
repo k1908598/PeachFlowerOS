@@ -12,7 +12,7 @@
     <script src="script.js"></script>
 
 
-    <!--welcome screen-->
+    <!--welcome screen / LeonaOS Introduction-->
     <div id="welcome" style="border: solid; 
     position: absolute; 
         width: 100%; 
@@ -29,17 +29,17 @@
         <!--when i did top and left 50%, it didnt work. but when i use translate(-50%,-50%), it wored!-->
 
         <div id="welcomeheader" style="width:100%;
-        position:absolute;
         display:flex;
-        align-items: center;
-        cursor: move;
-        justify-content: center;">
+        cursor: move;">
 
-        <p style = "cursor: pointer" id = "welcomeclose">Close</p>
+        <p id = "welcomeclose"
+        style = "cursor: pointer;
+        display:flex;
+        justify-content:flex-end;
+        align-items:self-start;" >
+        Close
+    </p>
 
-            <p style="margin:0px; color:#fff; font-weight:500">
-                Handle;
-            </p>
 
         </div>
 
@@ -50,23 +50,30 @@
         <p><dfn>shhhhhhhhhhhh,</dfn> this is a gift to Leona, don't tell her</p>
     </div>
 
+
+
     <!--TOP BAR-->
-    <div style="position:absolute; 
+    <div id="topBar";
+    style="position:absolute; 
         width:100%; 
         backdrop-filter:blur(10px); 
         background-color:rgba(221, 49, 49, 0.25);
         color:#fff; 
-        display:flex; 
-        justify-content:space-around;">
+        display:flex;">
         <!--the blur thingy doesnt work, whatever-->
 
         <p style="border-radius:16px;background-color: #fe8ee28b;padding:7px">LeonaOS</p>
         <p style="border-radius:16px;background-color: aquamarine;padding:7px">making boba</p>
 
-
-
+        <!--time component-->
+        <p id="timeElement">
+            Time
+        </p>
 
     </div>
+
+      <!--time (should be in the top bar)-->
+    
 
     <!--BOTTOM BAR-->
     <div style="
@@ -87,18 +94,8 @@
 
     </div>
 
-    <div>
-        <p id="timeElement" style="position:absolute;
-        display:flex; 
-        border-radius:16px;
-        backdrop-filter: blur(10px);
-        background-color: rgba(105, 219, 237, 0.537);
-        color:bisque;
-        padding:16px;
-        justify-content:flex-end;">
-            Time
-        </p>
-    </div>
+
+  
 
     <!--draggable window-->
     <div id="window" style="position:absolute;
@@ -111,6 +108,8 @@
     cursor:move;">
         Drag me!
     </div>
+
+
 </body>
 
 </html>
