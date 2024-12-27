@@ -1,105 +1,116 @@
+// Variables for dragging functionality
 let initialX = 0;
 let initialY = 0;
 let currentX = 0;
 let currentY = 0;
-let draggedElement;
-
-
-var welcomeScreen;
-var welcomeScreenClose;
-var welcomeScreenOpen;//Chat says that even if i declared those globally, if I am trying to use these variables before they are assigned (outside window.onload), they will still be undefined
-
+let draggedElement = null;
 
 window.onload = () => {
+    // Update time and start interval
     updateTime();
     setInterval(updateTime, 1000);
 
-    dragElement(document.getElementById("window"));
+    // Welcome Screen
+    const welcomeScreen = document.querySelector("#welcome");
+    const welcomeScreenClose = document.querySelector("#welcomeclose");
 
-    var welcomeScreen = document.querySelector("#welcome");
-    var welcomeScreenClose = document.querySelector("#welcomeclose");
-    var welcomeScreenOpen = document.querySelector("#welcomeopen");
+    // Music Review App
+    const musicReviewApp = document.querySelector("#musicReview");
+    const musicReviewClose = document.querySelector("#musicReviewClose");
 
-    if (welcomeScreenClose && welcomeScreen) {
-        welcomeScreenClose.addEventListener("click", function () {
-            closeWindow(welcomeScreen);
-        })
-    }
+    // Example App
+    const exampleApp = document.querySelector("#exampleApp");
 
-    if (welcomeScreenOpen && welcomeScreen) {
+    // Add functionality for apps
+    addAppFunctionality(welcomeScreen, welcomeScreenClose);
+    addAppFunctionality(musicReviewApp, musicReviewClose);
 
-        welcomeScreenOpen.addEventListener("click", function () {
-            openWindow(welcomeScreen);
-        })
-    }
+    // Make draggable windows
+    dragElement(welcomeScreen);
+    dragElement(musicReviewApp);
+    dragElement(exampleApp);
+};
 
-}
-
-
+// Function to make elements draggable
 function dragElement(element) {
+    const header = element.querySelector(".windowheader") || element; // Use header if available
 
-
-    if (document.getElementById(element.id + "header")) {
-        document.getElementById(element.id + "header").onmousedown = function(e){
-            startDragging(e, element);
-        };
-    }
-    else {
-        //attach the mousedown listener to the element itself
-        element.onmousedown = function(e){
-            startDragging(e, element);
-        }
-    }
+    header.onmousedown = (e) => {
+        startDragging(e, element);
+    };
 }
 
 function startDragging(e, element) {
-    e = e || window.event;
     e.preventDefault();
 
     draggedElement = element;
-
     initialX = e.clientX;
     initialY = e.clientY;
 
-    document.onmouseup = stopDragging;
     document.onmousemove = dragHandler;
+    document.onmouseup = stopDragging;
 }
 
 function dragHandler(e) {
-    e = e || window.event;
+    if (!draggedElement) return;
+
     e.preventDefault();
 
-    if (!draggedElement)  return;
-    
+    currentX = e.clientX - initialX;
+    currentY = e.clientY - initialY;
 
-    currentX = initialX - e.clientX;
-    currentY = initialY - e.clientY;
     initialX = e.clientX;
     initialY = e.clientY;
 
-    draggedElement.style.top = (draggedElement.offsetTop - currentY) + "px";
-    draggedElement.style.left = (draggedElement.offsetLeft - currentX) + "px";
+    // Update position of the dragged element
+    draggedElement.style.top = (draggedElement.offsetTop + currentY) + "px";
+    draggedElement.style.left = (draggedElement.offsetLeft + currentX) + "px";
 }
 
-
 function stopDragging() {
-    document.onmouseup = null;
     document.onmousemove = null;
-
+    document.onmouseup = null;
     draggedElement = null;
 }
 
+// Function to add open/close functionality
+function addAppFunctionality(appElement, closeButtonElement, openButtonElement = null) {
+    // Close button functionality
+    if (closeButtonElement) {
+        closeButtonElement.addEventListener("click", () => closeWindow(appElement));
+    }
+
+    // Open button functionality (optional)
+    if (openButtonElement) {
+        openButtonElement.addEventListener("click", () => openWindow(appElement));
+    }
+}
+
+// Function to close a window
 function closeWindow(element) {
     element.style.display = "none";
+    console.log(`Window closed: ${element.id}`);
 }
 
+// Function to open a window
 function openWindow(element) {
     element.style.display = "flex";
+    element.style.zIndex = getNextZIndex();
+    console.log(`Window opened: ${element.id}`);
 }
 
+// Function to update time
 function updateTime() {
-    let timeText = document.querySelector("#timeElement");
-    timeText.innerHTML = new Date().toLocaleString();
+    const timeElement = document.querySelector("#timeElement");
+    timeElement.textContent = new Date().toLocaleTimeString();
 }
 
-
+// Get the next highest z-index for active windows
+function getNextZIndex() {
+    let maxZIndex = 10; // Default starting z-index
+    document.querySelectorAll(".window").forEach((window) => {
+        const zIndex = parseInt(window.style.zIndex) || 0;
+        if (zIndex > maxZIndex) maxZIndex = zIndex;
+    });
+    return maxZIndex + 1;
+}
