@@ -11,13 +11,12 @@
     <script src="script.js"></script>
 
     <!-- Welcome Screen -->
-    <div id="welcome" class="window draggable">
-        <div id="welcomeheader" class="windowheader"
-        style = "background-color:#4B2D5C;
+    <div id="welcome" class="window">
+        <div id="welcomeheader" class="windowheader" style="background-color:#4B2D5C;
         color: white;
         cursor: pointer;
         display:flex;">
-            <p id = "welcomeopen" style = "font-size: 2em; font-weight: bolder;"> LeonaOS</p>
+            <p id="welcomeopen" style="font-size: 2em; font-weight: bolder;text-align:center;"> LeonaOS</p>
             <p id="welcomeclose" class="closebutton">Close</p>
         </div>
         <div class="window-content">
@@ -31,64 +30,72 @@
 
     <!-- Top Bar -->
     <div id="topBar" class="top-bar">
-        <p class="app-title">LeonaOS</p>
-        <p class="app-status">making boba</p>
+        <p class="app-title" style="font-weight: bolder; color: white;">LeonaOS</p>
+        <p class="app-status" style="color:white">making boba</p>
         <p id="timeElement" class="time-display">Time</p>
     </div>
 
     <!-- Bottom Bar -->
-    <div id="bottomBar" class="bottom-bar">
-        <p class="quote-display">Quote of the day.</p>
+    <!--<div id="bottomBar" class="bottom-bar">
+        <p class="quote-display" style = "color: white">Quote of the day.</p>
     </div>
 
-    <!-- Desktop App: Music Review -->
-    <div id="musicReview" class="window draggable" style="top: 20%; left: 20%;">
-        <div id="musicReviewHeader" class="windowheader">
-            <p id="musicReviewClose" class="closebutton">x</p>
-            <p class="headertext">Music Review</p>
-            <img src="Desktop/FriedEggFamilyOS/assets/music-review.jpeg" class="app-icon" alt="Music Review Icon">
+    <!- Desktop App: Music Review -->
+    <div style="top: 0px; left:0px;">
+        <!--app icon-->
+        <div style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content;">
+            <p style="margin: 0px; color: white;">Music Review app</p>
+            <img src="musicReview/music-review.jpeg" class="app-icon" alt="Music Review Icon" style="width: 100px;
+            height:auto;">
         </div>
-        <div class="window-content" style = "display: flex; ">
-            <div class = "sidebar" 
-            style = "
+        <!--app after open the icon-->
+        <div id="musicReview" class="window">
+            <div id="musicReviewHeader" class="windowheader">
+                <p id="musicReviewClose" class="closebutton">x</p>
+                <p class="headertext">Music Review</p>
+            </div>
+            <div class="window-content" style="display: flex; ">
+                <div class="sidebar" style="
             flex-direction: column;
             width:50px;
             background-color: pink;
             padding: 16px;
             margin-right:16px;
             border-radius: 16px;">
-            <p style = "margin: 0px;
+                    <p style="margin: 0px;
             color: black">Table of Content</p>
-            </div>
-            <div style = "overflow-y: scroll;">
+                </div>
+                <div style="overflow-y: scroll;">
 
-                <p>Music Review for Leona</p>
-                </br>
-                <img src="workspaces/PeachFlowerOS/Desktop/FriedEggFamilyOS/assets/nightsky.png"
-                style = "width:96px; border-radius: 16px;">
-                </br>
-                <p> APT</p>
-                <p> she loves it </p>
-                <blockquote style = "background-color: brown; 
+                    <p>Music Review for Leona</p>
+                    </br>
+                    <img src="musicReview/nightsky.png" style="width:100px;
+                height:auto;
+                 border-radius: 16px;">
+                    </br>
+                    <p> APT</p>
+                    <p> she loves it </p>
+                    <blockquote style="background-color: brown; 
                 margin-top: 16px; 
                 margin-left:0px; 
                 margin-right: 0px; 
                 padding:16px;
                 border-radius:16px;">
-                    <i> I Love It
-                    </br>
-                    ~ Leona
-                    </i>
-                </blockquote>
-                <span> 
-                    You could add more.
-                </span>
+                        <i> I Love It
+                            </br>
+                            ~ Leona
+                        </i>
+                    </blockquote>
+                    <span>
+                        You could add more.
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Draggable Example Window -->
-    <div id="exampleApp" class="window draggable" style="top: 30%; left: 30%;">
+    <div id="exampleApp" class="window" style="top: 30%; left: 30%;">
         Drag me around!
     </div>
 

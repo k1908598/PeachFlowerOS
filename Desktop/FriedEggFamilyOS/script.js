@@ -4,6 +4,7 @@ let initialY = 0;
 let currentX = 0;
 let currentY = 0;
 let draggedElement = null;
+var selectedIcon = undefined;
 
 window.onload = () => {
     // Update time and start interval
@@ -15,6 +16,7 @@ window.onload = () => {
     const welcomeScreenClose = document.querySelector("#welcomeclose");
 
     // Music Review App
+    const musicReviewIcon = document.querySelector(".app-icon");
     const musicReviewApp = document.querySelector("#musicReview");
     const musicReviewClose = document.querySelector("#musicReviewClose");
 
@@ -25,10 +27,19 @@ window.onload = () => {
     addAppFunctionality(welcomeScreen, welcomeScreenClose);
     addAppFunctionality(musicReviewApp, musicReviewClose);
 
+    musicReviewIcon.addEventListener("click", (e)=>{
+        e.stopPropagation();//prevvent click from interfering with mousedown
+        handleIconTap(musicReviewIcon, musicReviewApp,e);
+    })
+
+    //if an app is clicked, call handleIconTap(element).
+
     // Make draggable windows
     dragElement(welcomeScreen);
     dragElement(musicReviewApp);
     dragElement(exampleApp);
+
+    console.log("musicReviewApp:", musicReviewApp);//check if element exists
 };
 
 // Function to make elements draggable
@@ -73,6 +84,32 @@ function stopDragging() {
     draggedElement = null;
 }
 
+function selectIcon(element){
+    element.classList.add("selected");
+    selectedIcon = element;
+}
+
+function deselectIcon(element){
+    element.classList.remove("selected");
+    selectedIcon = undefined;
+}
+
+function handleIconTap(iconElement, appElement,e){
+    e.stopPropagation();
+    if (iconElement.classList.contains("selected")){
+        //icon opens
+        if (appElement.style.display == "none" || appElement.style.display==""){
+            openWindow(appElement);
+        }
+        else{
+            closeWindow(appElement);
+        }
+        deselectIcon(iconElement);
+    }
+    else{
+        selectIcon(iconElement);
+    }
+}
 // Function to add open/close functionality
 function addAppFunctionality(appElement, closeButtonElement, openButtonElement = null) {
     // Close button functionality
