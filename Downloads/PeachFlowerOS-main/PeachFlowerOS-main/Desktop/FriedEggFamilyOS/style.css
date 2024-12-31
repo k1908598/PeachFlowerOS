@@ -1,0 +1,141 @@
+/* Reset for consistent rendering */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* General body styles */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    background: linear-gradient(to bottom,#030001, #FC8CAD); /* Optional background color */
+}
+
+/* Top bar styling */
+#topBar {
+    position: fixed; /* Ensures the bar stays at the top */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+    background-color:rgb(253, 43, 155);/* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Corrected property for blur */
+    z-index: 1000; /* Keeps it above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+
+/* Time element styling */
+#timeElement {
+    display: flex;
+    justify-content: flex-end;
+    padding: 7px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px); /* Fixed blur effect */
+    background-color: rgba(105, 219, 237, 0.537);
+    color: aliceblue;
+    font-weight: bold;
+}
+#welcome{
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* Draggable window styling */
+.window {
+    position: absolute; /* Allows draggable positioning */
+    width: 300px; /* Default width */
+    min-height: 200px; /* Minimum height */
+    padding: 16px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+    cursor: move; /* Indicates draggable behavior */
+    z-index: 10; /* Keeps it above lower elements */
+}
+
+/* Add hover effect for window */
+.window:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Full height for html */
+html {
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+}
+
+/* Example for responsiveness */
+@media (max-width: 768px) {
+    .window {
+        width: 90%; /* Make windows take most of the screen on smaller devices */
+        height: auto;
+    }
+    #topBar {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+#musicReview{
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    height:70%;
+}
+#musicReviewIcon{
+    position:absolute;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+.window-content {
+    display: flex;
+    width:100%;
+    height: auto;
+}
+#sidebar{
+    flex: 0 0 100px; /* Sidebar fixed width */
+    background-color: pink; /* Background color */
+    padding: 16px; /* Add padding */
+    margin-right: 16px; /* Margin from the right */
+    border-radius: 16px; /* Rounded corners */
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100%; /* Limit the sidebar height to its container */
+    box-sizing: border-box; /* Include padding in width/height calculations */
+}
+#musicReviewContent{
+    flex:1;
+    overflow-y: auto;
+    padding:16px;
+}
+.selected{
+    border: 2px solid whitesmoke;
+    box-shadow: 0 0 10px rgba(75,45,92,0.5);
+    transition: all 0.3s ease-in-out;
+
+}
+.app-icon.selected {
+    border: 2px solid greenyellow; /* Highlight with a green yellow border */
+    border-radius: 8px; /* Rounded corners for the border */
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.5); /* Subtle glow effect */
+    transform: scale(1.1); /* Slightly enlarge the icon for emphasis */
+    transition: all 0.2s ease-in-out; /* Smooth scaling and border transition */
+}
+
