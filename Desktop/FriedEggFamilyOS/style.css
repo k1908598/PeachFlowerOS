@@ -1,30 +1,121 @@
-html{
-    height:100%;
-    margin:0;
-}
-body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    width:100%;
-    height:100vh;
-    position: absolute;
-    text-align:center;
-    
-}
-#topBar{
-    position:absolute;
-    display:flex;
-    width:100%;
-    justify-content:space-between;
-    padding:7px;
+/* Reset for consistent rendering */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
 
-#timeElement{
-    width:100%;
-    display:flex;
-    justify-content:flex-end;
-    padding:7px;
-    border-radius:16px;
-    backdrop-filter:blue(10px);
-    background-color:rgba(105, 219, 237, 0.5370);
-    color:aliceblue;
-}   
+/* General body styles */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    background: linear-gradient(to bottom,#030001, #FC8CAD); /* Optional background color */
+}
+
+/* Top bar styling */
+#topBar {
+    position: fixed; /* Ensures the bar stays at the top */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+    background-color:rgb(253, 43, 155);/* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Corrected property for blur */
+    z-index: 1000; /* Keeps it above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+
+/* Time element styling */
+#timeElement {
+    display: flex;
+    justify-content: flex-end;
+    padding: 7px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px); /* Fixed blur effect */
+    background-color: rgba(105, 219, 237, 0.537);
+    color: aliceblue;
+    font-weight: bold;
+}
+#welcome{
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* Draggable window styling */
+.window {
+    position: absolute; /* Allows draggable positioning */
+    width: 300px; /* Default width */
+    min-height: 200px; /* Minimum height */
+    padding: 16px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+    cursor: move; /* Indicates draggable behavior */
+    z-index: 10; /* Keeps it above lower elements */
+}
+
+/* Add hover effect for window */
+.window:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Full height for html */
+html {
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+}
+
+/* Example for responsiveness */
+@media (max-width: 768px) {
+    .window {
+        width: 90%; /* Make windows take most of the screen on smaller devices */
+        height: auto;
+    }
+    #topBar {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+#musicReview{
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    height:auto;
+}
+#musicReviewIcon{
+    position:absolute;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+.selected{
+    border: 2px solid whitesmoke;
+    box-shadow: 0 0 10px rgba(75,45,92,0.5);
+    transition: all 0.3s ease-in-out;
+
+}
+.app-icon.selected {
+    border: 2px solid greenyellow; /* Highlight with a green yellow border */
+    border-radius: 8px; /* Rounded corners for the border */
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.5); /* Subtle glow effect */
+    transform: scale(1.1); /* Slightly enlarge the icon for emphasis */
+    transition: all 0.2s ease-in-out; /* Smooth scaling and border transition */
+}
+

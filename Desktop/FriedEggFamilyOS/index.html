@@ -1,114 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <link href="style.css" rel="stylesheet" />
     <title>Leona's Personal OS - v24</title>
 </head>
 
-
-<body style="background-image: url('assets/pink.png');">
+<body>
 
     <script src="script.js"></script>
 
-
-    <!--welcome screen / LeonaOS Introduction-->
-    <div id="welcome" style="border: solid; 
-    position: absolute; 
-        width: 100%; 
-        display:flex;
-        align-items: center;
-        cursor: move;
-        justify-content:center;
-        border-radius: 16px; 
-        padding:16px; 
-        top:50%; left:50%; 
-        transform: translate(-50%,-50%);
-        background-color: rgba(0,0,0,0.125);
-        flex-direction: column;">
-        <!--when i did top and left 50%, it didnt work. but when i use translate(-50%,-50%), it wored!-->
-
-        <div id="welcomeheader" style="width:100%;
-        display:flex;
-        cursor: move;">
-
-        <p id = "welcomeclose"
-        style = "cursor: pointer;
-        display:flex;
-        justify-content:flex-end;
-        align-items:self-start;" >
-        Close
-    </p>
-
-
-        </div>
-
-
-        <h1 style = "cursor: pointer" id = "welcomeopen">LeonaOS</h1>
-        <h3>LeonaOS is a system that features some part of Leona's memories in 2024 on <dfn>Planet Earth, Solar System
-                and Milky Way Galaxy</dfn></h3>
-        <p><dfn>shhhhhhhhhhhh,</dfn> this is a gift to Leona, don't tell her</p>
-    </div>
-
-
-
-    <!--TOP BAR-->
-    <div id="topBar";
-    style="position:absolute; 
-        width:100%; 
-        backdrop-filter:blur(10px); 
-        background-color:rgba(221, 49, 49, 0.25);
-        color:#fff; 
+    <!-- Welcome Screen -->
+    <div id="welcome" class="window">
+        <div id="welcomeheader" class="windowheader" style="background-color:#4B2D5C;
+        color: white;
+        cursor: pointer;
         display:flex;">
-        <!--the blur thingy doesnt work, whatever-->
-
-        <p style="border-radius:16px;background-color: #fe8ee28b;padding:7px">LeonaOS</p>
-        <p style="border-radius:16px;background-color: aquamarine;padding:7px">making boba</p>
-
-        <!--time component-->
-        <p id="timeElement">
-            Time
-        </p>
-
+            <p id="welcomeopen" style="font-size: 2em; font-weight: bolder;text-align:center;"> LeonaOS</p>
+            <p id="welcomeclose" class="closebutton">Close</p>
+        </div>
+        <div class="window-content">
+            <h3>
+                LeonaOS is a system that features some part of Leona's memories in 2024 on
+                <dfn>Planet Earth, Solar System, and Milky Way Galaxy</dfn>.
+            </h3>
+            <p><dfn>shhhhhhhhhhhh,</dfn> this is a gift to Leona. Don't tell her!</p>
+        </div>
     </div>
 
-      <!--time (should be in the top bar)-->
-    
-
-    <!--BOTTOM BAR-->
-    <div style="
-    position:absolute;
-    bottom:0;
-    width:100%;
-    display:flex;
-    justify-content:space-around;
-    justify-content:center;
-    padding:7px; 
-    border-radius:16px;
-    align-items:flex-end;
-    background-color:rgba(105, 219, 237, 0.537);
-    font-size:25px;
-    color:#fff"><!--this color is for text color, the background color is background color-->
-
-        <p style="border-radius:16px; background-color:rgba(165, 230, 130, 0.674); padding:7px;">Quote of the day.</p>
-
+    <!-- Top Bar -->
+    <div id="topBar" class="top-bar">
+        <p class="app-title" style="font-weight: bolder; color: white; padding:7px;">PeachFlowerOS</p>
+        <p class="app-status" style="color:white; ">making boba</p>
+        <p id="timeElement" class="time-display" style = "padding:7px;">Time</p>
     </div>
 
-
-  
-
-    <!--draggable window-->
-    <div id="window" style="position:absolute;
-    width:200px;
-    height:100px;
-    top:20%;
-    left:20%;
-    border: solid 1px #000;
-    background-color: #fff;
-    cursor:move;">
-        Drag me!
+    <!-- Bottom Bar -->
+    <!--<div id="bottomBar" class="bottom-bar">
+        <p class="quote-display" style = "color: white">Quote of the day.</p>
     </div>
 
+    <!- Desktop App: Music Review -->
+    <div><!--if i put inline style here, it doesnt seem to do anything-->
+        <!--app icon-->
+        <div id = "musicReviewIcon" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content;"><!--doesnt do anything-->
+            <p style="margin: 0px; color: white;">Music Review app</p>
+            <img src="musicReview/music-review.jpeg" class="app-icon" alt="Music Review Icon" style="width: 100px;
+            height:auto;">
+        </div>
+        <!--app after open the icon-->
+        <div id="musicReview" class="window">
+            <div id="musicReviewHeader" class="windowheader">
+                <p id="musicReviewClose" class="closebutton">x</p>
+                <p class="headertext"></p>
+            </div>
+            <div class="window-content" style="display: flex; ">
+                <div id ="sidebar" style="
+            flex-direction: column;
+            width:50px;
+            background-color: pink;
+            padding: 16px;
+            margin-right:16px;
+            border-radius: 16px;">
+                    <p style="margin: 0px;
+            color: black">Table of Content</p>
+                </div>
+                <div id = "musicReviewContent" style="overflow-y: scroll;">
+
+                    <p>Music Review for Leona</p>
+                    </br>
+                    <img src="musicReview/nightsky.png" style="width:100px;
+                height:auto;
+                 border-radius: 16px;">
+                    </br>
+                    <p> APT</p>
+                    <p> she loves it </p>
+                    <blockquote style="background-color: brown; 
+                margin-top: 16px; 
+                margin-left:0px; 
+                margin-right: 0px; 
+                padding:16px;
+                border-radius:16px;">
+                        <i> I Love It
+                            </br>
+                            ~ Leona
+                        </i>
+                    </blockquote>
+                    <span>
+                        You could add more.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Draggable Example Window -->
+    <div id="exampleApp" class="window" style="top: 30%; left: 30%;">
+        Drag me around!
+    </div>
 
 </body>
 
