@@ -5,6 +5,30 @@ let currentX = 0;
 let currentY = 0;
 let draggedElement = null;
 var selectedIcon = undefined;
+var content = [
+    {
+        title:"Welcome",
+        date:"12/20/2024",
+        content:`
+        <p> APT</p>
+                    <p> she loves it </p>
+                    <blockquote style="background-color: brown; 
+                margin-top: 16px; 
+                margin-left:0px; 
+                margin-right: 0px; 
+                padding:16px;
+                border-radius:16px;">
+                        <i> I Love It
+                            </br>
+                            ~ Leona
+                        </i>
+                    </blockquote>
+                    <span>
+                        You could add more.
+                    </span>
+        `
+    }
+]
 
 window.onload = () => {
     // Update time and start interval
@@ -40,6 +64,13 @@ window.onload = () => {
     dragElement(exampleApp);
 
     console.log("musicReviewApp:", musicReviewApp);//check if element exists
+
+    //set music review content
+    setMusicReviewContent(0);
+    //ensure sidebar is fully loaded
+    for (let i = 0; i < content.length; i++) {
+        addToSideBar(i)
+      }
 };
 
 // Function to make elements draggable
@@ -150,4 +181,29 @@ function getNextZIndex() {
         if (zIndex > maxZIndex) maxZIndex = zIndex;
     });
     return maxZIndex + 1;
+}
+
+
+function addToSideBar(index){
+    var sidebar = document.querySelector("#sidebar");
+    var note = content[index];
+    var newDiv = document.createElement("div");
+    newDiv.innerHTML = `
+    <p style = "margin: 0px;">${note.title}</p>
+    <p style = "font-size: 12px; margin: 0px;">${note.date}</p>
+    `;
+
+    newDiv.addEventListener("click", function(){
+        setMusicReviewContent(index);
+    });
+    sidebar.appendChild(newDiv);
+}
+
+function setMusicReviewContent(index){
+    var musicReviewContent = document.querySelector("#musicReviewContent");
+    if (!musicReviewContent){
+        console.error("Music Review Content element not found");
+        return;
+    }
+    musicReviewContent.innerHTML = content[index].content;
 }
