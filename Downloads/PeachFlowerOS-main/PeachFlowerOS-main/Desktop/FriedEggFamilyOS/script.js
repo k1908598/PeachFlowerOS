@@ -220,33 +220,64 @@ window.onload = () => {
     updateTime();
     setInterval(updateTime, 1000);
 
+
+
     // Welcome Screen
     const welcomeScreen = document.querySelector("#welcome");
     const welcomeScreenClose = document.querySelector("#welcomeclose");
 
     // Music Review App
-    const musicReviewIcon = document.querySelector(".app-icon");
+    const musicReviewIcon = document.querySelector("#musicReviewIcon");
     const musicReviewApp = document.querySelector("#musicReview");
     const musicReviewClose = document.querySelector("#musicReviewClose");
 
     // Example App
     const exampleApp = document.querySelector("#exampleApp");
 
+    // Wish List App
+    const wishListIcon = document.querySelector("#wishListIcon");
+    const wishListApp = document.querySelector("#wishList");
+    const wishListClose = document.querySelector("#wishListClose");
+
+
+
+    
+    const appIcons = document.querySelectorAll(".app-icon");
+    appIcons.forEach((icon) => {
+        const appId= icon.getAttribute("data-app-id");
+        const appElement = document.querySelector(`#${appId}`);
+
+        if (appElement) {
+            icon.addEventListener("click", (e) => {
+                e.stopPropagation();
+                handleIconTap(icon, appElement, e);
+            });
+        }
+        else{
+            console.error(`App element not found with data-app-id: ${appId}`);
+        }
+
+    });
+
     // Add functionality for apps
     addAppFunctionality(welcomeScreen, welcomeScreenClose);
     addAppFunctionality(musicReviewApp, musicReviewClose);
+    addAppFunctionality(wishListApp, wishListClose);
 
     musicReviewIcon.addEventListener("click", (e)=>{
         e.stopPropagation();//prevvent click from interfering with mousedown
         handleIconTap(musicReviewIcon, musicReviewApp,e);
     })
-
-    //if an app is clicked, call handleIconTap(element).
+    wishListIcon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        handleIconTap(wishListIcon, wishListApp, e); // Add Wish List icon functionality
+    });
 
     // Make draggable windows
     dragElement(welcomeScreen);
     dragElement(musicReviewApp);
     dragElement(exampleApp);
+    dragElement(wishListApp);
 
     console.log("musicReviewApp:", musicReviewApp);//check if element exists
 
@@ -331,6 +362,8 @@ function addAppFunctionality(appElement, closeButtonElement, openButtonElement =
     // Close button functionality
     if (closeButtonElement) {
         closeButtonElement.addEventListener("click", () => closeWindow(appElement));
+    }else{
+        console.error("addAppFuncionality: Close button not found");
     }
 
     // Open button functionality (optional)
@@ -341,6 +374,10 @@ function addAppFunctionality(appElement, closeButtonElement, openButtonElement =
 
 // Function to close a window
 function closeWindow(element) {
+    if (! element){
+        console.error("Element not found");
+        return;
+    }
     element.style.display = "none";
     console.log(`Window closed: ${element.id}`);
 }
