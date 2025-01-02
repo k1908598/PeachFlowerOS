@@ -143,12 +143,27 @@ body {
     left:50%;
     transform:translate(-50%, -50%);
 }
-.selected{
+#artGallery{
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    height:70%;
+}
+#artGalleryIcon{
+    position:absolute;
+    top: 30%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+/*.selected{
     border: 2px solid whitesmoke;
     box-shadow: 0 0 10px rgba(75,45,92,0.5);
     transition: all 0.3s ease-in-out;
 
-}
+}*/
 .app-icon.selected {
     border: 2px solid greenyellow; /* Highlight with a green yellow border */
     border-radius: 8px; /* Rounded corners for the border */

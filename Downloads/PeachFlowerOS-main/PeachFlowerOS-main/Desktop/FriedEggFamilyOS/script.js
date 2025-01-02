@@ -239,6 +239,11 @@ window.onload = () => {
     const wishListApp = document.querySelector("#wishList");
     const wishListClose = document.querySelector("#wishListClose");
 
+    // Art Gallery App
+    const artGalleryIcon = document.querySelector("#artGalleryIcon");
+    const artGalleryApp = document.querySelector("#artGallery");
+    const artGalleryClose = document.querySelector("#artGalleryClose");
+
 
 
     
@@ -263,21 +268,14 @@ window.onload = () => {
     addAppFunctionality(welcomeScreen, welcomeScreenClose);
     addAppFunctionality(musicReviewApp, musicReviewClose);
     addAppFunctionality(wishListApp, wishListClose);
-
-    musicReviewIcon.addEventListener("click", (e)=>{
-        e.stopPropagation();//prevvent click from interfering with mousedown
-        handleIconTap(musicReviewIcon, musicReviewApp,e);
-    })
-    wishListIcon.addEventListener("click", (e) => {
-        e.stopPropagation();
-        handleIconTap(wishListIcon, wishListApp, e); // Add Wish List icon functionality
-    });
+    addAppFunctionality(artGalleryApp, artGalleryClose);
 
     // Make draggable windows
     dragElement(welcomeScreen);
     dragElement(musicReviewApp);
     dragElement(exampleApp);
     dragElement(wishListApp);
+    dragElement(artGalleryApp);
 
     console.log("musicReviewApp:", musicReviewApp);//check if element exists
 
