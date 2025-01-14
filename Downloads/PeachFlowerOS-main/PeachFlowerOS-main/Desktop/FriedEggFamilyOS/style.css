@@ -184,6 +184,16 @@ body {
     overflow-y: auto;
     box-sizing: border-box;
 }
+.art-item{
+    width: 200px;
+    height: 200px;
+    margin: 8px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
 /*.selected{
     border: 2px solid whitesmoke;
     box-shadow: 0 0 10px rgba(75,45,92,0.5);

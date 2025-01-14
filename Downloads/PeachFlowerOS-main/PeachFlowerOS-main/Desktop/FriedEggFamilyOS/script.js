@@ -7,9 +7,9 @@ let draggedElement = null;
 var selectedIcon = undefined;
 var content = [
     {
-        title:"Allergy",
-        date:"12/20/2024",
-        content:`
+        title: "Allergy",
+        date: "12/20/2024",
+        content: `
         <p> Allergy</p>
         <img src="musicReview/allergy.jpeg" style="width: 500px; height: auto;">
                     <p> she loves it </p>
@@ -30,9 +30,9 @@ var content = [
         `
     },
     {
-        title:"Drama",
-        date:"12/20/2024",
-        content:`
+        title: "Drama",
+        date: "12/20/2024",
+        content: `
         <p>Drama</p>
         <img src="musicReview/drama.jpeg" style="width: 500px; height: auto;">
                     <p> she loves it </p>
@@ -53,9 +53,9 @@ var content = [
         `
     },
     {
-        title:"Drip",
-        date:"12/20/2024",
-        content:`
+        title: "Drip",
+        date: "12/20/2024",
+        content: `
         <p>Drip</p>
         <img src="musicReview/drip.jpeg" style="width: 500px; height: auto;">
                     <p> she loves it </p>
@@ -76,9 +76,9 @@ var content = [
         `
     },
     {
-        title:"Nxde",
-        date:"12/20/2024",
-        content:`
+        title: "Nxde",
+        date: "12/20/2024",
+        content: `
         <p>Nxde</p>
         <img src="musicReview/nxde.jpeg" style="width: 500px; height: auto;">
                     <p> she loves it </p>
@@ -99,9 +99,9 @@ var content = [
         `
     },
     {
-        title:"Revenge",
-        date:"12/20/2024",
-        content:`
+        title: "Revenge",
+        date: "12/20/2024",
+        content: `
         <p>Revenge</p>
         <img src="musicReview/revenge.webp" style="width: 500px; height: auto;">
                     <p> she loves it </p>
@@ -122,9 +122,9 @@ var content = [
         `
     },
     {
-        title:"Savage",
-        date:"12/20/2024",
-        content:`
+        title: "Savage",
+        date: "12/20/2024",
+        content: `
         <p>Savage</p>
         <img src="musicReview/savage.jpeg" style="width: 500px; height: auto;">
                     <p> she loves it </p>
@@ -145,9 +145,9 @@ var content = [
         `
     },
     {
-        title:"Spot",
-        date:"12/20/2024",
-        content:`
+        title: "Spot",
+        date: "12/20/2024",
+        content: `
         <p>Spot</p>
         <img src="musicReview/spot.jpeg" style="width: 500px; height: auto;">
                     <p> she loves it </p>
@@ -168,9 +168,9 @@ var content = [
         `
     },
     {
-        title:"Supernova",
-        date:"12/20/2024",
-        content:`
+        title: "Supernova",
+        date: "12/20/2024",
+        content: `
         <p>Supoernova</p>
         <img src="musicReview/supernova.jpeg" style="width: 500px; height: auto;">
                     <p> she loves it </p>
@@ -191,9 +191,9 @@ var content = [
         `
     },
     {
-        title:"Toxic Til The End",
-        date:"12/20/2024",
-        content:`
+        title: "Toxic Til The End",
+        date: "12/20/2024",
+        content: `
         <p>Toxic Til The End</p>
         <img src="musicReview/toxic til the end.jpeg" style="width: 500px; height: auto;">
                     <p> she loves it </p>
@@ -214,51 +214,51 @@ var content = [
         `
     }
 ]
-const ArtGalleryContent = [ 
+const ArtGalleryContent = [
     {
-        title:"Art 2",
-        date:"12/20/2024",
-        content:`
+        title: "Art 2",
+        date: "12/20/2024",
+        content: `
         <p>Art 1</p>
         <img src="WebOSReference.png" style="width: 130px; height: auto; padding: 10px;">
         `
     },
     {
-        title:"Art 2",
-        date:"12/20/2024",
-        content:`
+        title: "Art 2",
+        date: "12/20/2024",
+        content: `
         <p>Art 2</p>
         <img src="WebOSReference.png" style="width: 130px; height: auto; padding: 10px;">
         `
     },
     {
-        title:"Art 3",
-        date:"12/20/2024",
-        content:`
+        title: "Art 3",
+        date: "12/20/2024",
+        content: `
         <p>Art 1</p>
         <img src="WebOSReference.png" style="width: 130px; height: auto;padding: 10px;">
         `
     },
     {
-        title:"Art 1",
-        date:"12/20/2024",
-        content:`
+        title: "Art 1",
+        date: "12/20/2024",
+        content: `
         <p>Art 1</p>
         <img src="WebOSReference.png" style="width: 130px; height: auto;padding: 10px;">
         `
     },
     {
-        title:"Art 1",
-        date:"12/20/2024",
-        content:`
+        title: "Art 1",
+        date: "12/20/2024",
+        content: `
         <p>Art 1</p>
         <img src="WebOSReference.png" style="width: 130px; height: auto;padding: 10px;">
         `
     },
     {
-        title:"Art 44",
-        date:"12/20/2024",
-        content:`
+        title: "Art 44",
+        date: "12/20/2024",
+        content: `
         <p>Art 1</p>
         <img src="WebOSReference.png" style="width: 130px; height: auto;padding: 10px;">
         `
@@ -296,10 +296,10 @@ window.onload = () => {
 
 
 
-    
+
     const appIcons = document.querySelectorAll(".app-icon");
     appIcons.forEach((icon) => {
-        const appId= icon.getAttribute("data-app-id");
+        const appId = icon.getAttribute("data-app-id");
         const appElement = document.querySelector(`#${appId}`);
 
         if (appElement) {
@@ -308,7 +308,7 @@ window.onload = () => {
                 handleIconTap(icon, appElement, e);
             });
         }
-        else{
+        else {
             console.error(`App element not found with data-app-id: ${appId}`);
         }
 
@@ -334,13 +334,39 @@ window.onload = () => {
     //ensure sidebar is fully loaded
     for (let i = 0; i < content.length; i++) {
         addToSideBar(i)
-      }
+    }
 
     //set art gallery content
     for (let i = 0; i < ArtGalleryContent.length; i++) {
         setArtGalleryContent(i);
-      }
-    
+    }
+
+    // Add functionality for art items
+    //select art items
+    const artItems = document.querySelectorAll(".art-item");
+    console.log("artItems:", artItems);//artitems> NodeList[], length=0  :(
+    artItems.forEach(artItem => console.log(artItem.getAttribute("data-index")));
+
+    // do the same for art items
+    artItems.forEach(artItem => {
+        const artId = artItem.getAttribute("data-index");
+        const artElement = document.querySelector(`#${CSS.escape(artId)}`);
+
+        if (artElement) {
+            artItem.addEventListener("click", (e) => {
+                e.stopPropagation();
+                handleIconTap(artItem, artElement, e);//or use openWindow, but i dont know which one it is yet
+            });
+        }
+        else {
+            console.error(`Art element not found with data-index: ${artId}`);
+        }
+    }
+
+    )
+
+
+
 
 };
 
@@ -386,29 +412,29 @@ function stopDragging() {
     draggedElement = null;
 }
 
-function selectIcon(element){
+function selectIcon(element) {
     element.classList.add("selected");
     selectedIcon = element;
 }
 
-function deselectIcon(element){
+function deselectIcon(element) {
     element.classList.remove("selected");
     selectedIcon = undefined;
 }
 
-function handleIconTap(iconElement, appElement,e){
+function handleIconTap(iconElement, appElement, e) {
     e.stopPropagation();
-    if (iconElement.classList.contains("selected")){
+    if (iconElement.classList.contains("selected")) {
         //icon opens
-        if (appElement.style.display == "none" || appElement.style.display==""){
+        if (appElement.style.display == "none" || appElement.style.display == "") {
             openWindow(appElement);
         }
-        else{
+        else {
             closeWindow(appElement);
         }
         deselectIcon(iconElement);
     }
-    else{
+    else {
         selectIcon(iconElement);
     }
 }
@@ -417,7 +443,7 @@ function addAppFunctionality(appElement, closeButtonElement, openButtonElement =
     // Close button functionality
     if (closeButtonElement) {
         closeButtonElement.addEventListener("click", () => closeWindow(appElement));
-    }else{
+    } else {
         console.error("addAppFuncionality: Close button not found");
     }
 
@@ -429,7 +455,7 @@ function addAppFunctionality(appElement, closeButtonElement, openButtonElement =
 
 // Function to close a window
 function closeWindow(element) {
-    if (! element){
+    if (!element) {
         console.error("Element not found");
         return;
     }
@@ -443,9 +469,9 @@ function openWindow(element) {
     element.style.zIndex = getNextZIndex();
 
     //clear content if is a music review app
-    if (element.id == "musicReview"){
+    if (element.id == "musicReview") {
         var musicReviewContent = document.querySelector("#musicReviewContent");
-        if (!musicReviewContent){
+        if (!musicReviewContent) {
             console.error("Music Review Content element not found");
             return;
         }
@@ -471,7 +497,7 @@ function getNextZIndex() {
 }
 
 
-function addToSideBar(index){
+function addToSideBar(index) {
     var sidebar = document.querySelector("#sidebar");
 
     var note = content[index];
@@ -482,25 +508,25 @@ function addToSideBar(index){
     <br>
     `;
 
-    newDiv.addEventListener("click", function(){
+    newDiv.addEventListener("click", function () {
         setMusicReviewContent(index);
     });
     sidebar.appendChild(newDiv);
 }
 
 
-function setMusicReviewContent(index){
+function setMusicReviewContent(index) {
     var musicReviewContent = document.querySelector("#musicReviewContent");
-    if (!musicReviewContent){
+    if (!musicReviewContent) {
         console.error("Music Review Content element not found");
         return;
     }
     musicReviewContent.innerHTML = content[index].content;
 }
 
-function setArtGalleryContent(index){
+function setArtGalleryContent(index) {
     var artGalleryContent = document.querySelector("#artGalleryContent");
-    if (!artGalleryContent){
+    if (!artGalleryContent) {
         console.error("Art Gallery Content element not found");
         return;
     }
@@ -513,7 +539,10 @@ function setArtGalleryContent(index){
 
         newDiv.classList.add("art-item");
         newDiv.setAttribute("data-index", index);
-        
+
+        //add id attribute
+        newDiv.setAttribute("id", index);
+
         newDiv.innerHTML = ArtGalleryContent[index].content;
         //newDiv.innerHTML = artItem.content;
         artGalleryContent.appendChild(newDiv);
