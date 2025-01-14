@@ -158,6 +158,32 @@ body {
     left:50%;
     transform:translate(-50%, -50%);
 }
+#artGallery .window-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 16px;
+}
+#artGalleryTitle{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 16px 0;
+}
+#artGalleryContent{
+
+    width:100%;
+    margin-top: 16px;
+    text-align: center;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
 /*.selected{
     border: 2px solid whitesmoke;
     box-shadow: 0 0 10px rgba(75,45,92,0.5);

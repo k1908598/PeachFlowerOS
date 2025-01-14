@@ -48,7 +48,8 @@
             style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content;">
             <!--doesnt do anything-->
 
-            <img src="musicReview/music-review.jpeg" class="app-icon" data-app-id="musicReview" alt="Music Review Icon" style="width: 100px;
+            <img src="musicReview/music-review.jpeg" class="app-icon" data-app-id="musicReview" alt="Music Review Icon"
+                style="width: 100px;
             height:auto;"> <!--is it okay if data-app-id is same with antoher id?-->
             <p style="margin: 0px; color: white;">Music Review</p>
         </div>
@@ -84,7 +85,7 @@
     <div id="exampleApp" class="window" style="top: 30%; left: 30%; display:flex;
     flex-direction: column; align-items: center; justify-content: center;">
         Drag me around!
-        <img src = "Draggable/happy-happy-happy-cat.gif"; alt = "Happy Cat" style = "width: 100px; height: auto;">
+        <img src="Draggable/happy-happy-happy-cat.gif" ; alt="Happy Cat" style="width: 100px; height: auto;">
     </div>
 
 
@@ -93,7 +94,8 @@
         <!--icon-->
         <div id="wishListIcon"
             style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content;">
-            <img src="wishList/perfumeBottleIcon.png" class="app-icon" data-app-id="wishList" alt="Wish List Icon" style="width: 100px;
+            <img src="wishList/perfumeBottleIcon.png" class="app-icon" data-app-id="wishList" alt="Wish List Icon"
+                style="width: 100px;
             height:auto;">
             <p style="margin: 0px; color: white;">Wish List</p>
         </div>
@@ -104,7 +106,7 @@
                 <p class="headertext"></p>
             </div>
             <div class="window-content" style="display: flex; ">
-                <div id="sidebar"></div>
+                <!--<div id="sidebar"></div>-->
                 <div id="wishListContent" style="overflow-y: scroll;">
                 </div>
             </div>
@@ -116,19 +118,41 @@
         <!--app icon-->
         <div id="artGalleryIcon"
             style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content;">
-            <img src="ArtGallery/artGalleryIcon.png" class="app-icon" data-app-id="artGallery" alt="Art Gallery Icon" style="width: 100px;
+            <img src="ArtGallery/artGalleryIcon.png" class="app-icon" data-app-id="artGallery" alt="Art Gallery Icon"
+                style="width: 100px;
             height:auto;">
             <p style="margin: 0px; color: white;">Art Gallery</p>
         </div>
         <!--app after open the icon-->
-        <div id="artGallery" class="window">
+        <div id="artGallery" class="window" style="overflow-y: scroll;">
             <div id="artGalleryHeader" class="windowheader">
+
                 <p id="artGalleryClose" class="closebutton">x</p>
                 <p class="headertext"></p>
             </div>
             <div class="window-content" style="display: flex; ">
-                <div id="sidebar"></div>
-                <div id="artGalleryContent" style="overflow-y: scroll;">
+                <!--<div id="sidebar"></div>-->
+                <p id="artGalleryTitle" style="text-align: center; font-weight: bold; font-size: 1.5em;">Leona Art
+                    Gallery</p>
+
+                    <span>
+                        <blockquote style="background-color: rgba(148, 232, 109, 0.785); 
+                        margin-top: 16px; 
+                        margin-left:0px; 
+                        margin-right: 0px; 
+                        padding:16px;
+                        border-radius:16px;">
+                            <i> this is a collection of works Leona done in 2024. It features drawing, painting, pixel
+                                art, origami, and ceramics.
+                                </br> Enjoy the gallery!
+                            </i>
+                        </blockquote>
+                    </span>
+                    <br>
+                    <span>
+                    </span>
+                <div id="artGalleryContent">
+                    
                 </div>
             </div>
         </div>

@@ -214,6 +214,56 @@ var content = [
         `
     }
 ]
+const ArtGalleryContent = [ 
+    {
+        title:"Art 2",
+        date:"12/20/2024",
+        content:`
+        <p>Art 1</p>
+        <img src="WebOSReference.png" style="width: 130px; height: auto; padding: 10px;">
+        `
+    },
+    {
+        title:"Art 2",
+        date:"12/20/2024",
+        content:`
+        <p>Art 2</p>
+        <img src="WebOSReference.png" style="width: 130px; height: auto; padding: 10px;">
+        `
+    },
+    {
+        title:"Art 3",
+        date:"12/20/2024",
+        content:`
+        <p>Art 1</p>
+        <img src="WebOSReference.png" style="width: 130px; height: auto;padding: 10px;">
+        `
+    },
+    {
+        title:"Art 1",
+        date:"12/20/2024",
+        content:`
+        <p>Art 1</p>
+        <img src="WebOSReference.png" style="width: 130px; height: auto;padding: 10px;">
+        `
+    },
+    {
+        title:"Art 1",
+        date:"12/20/2024",
+        content:`
+        <p>Art 1</p>
+        <img src="WebOSReference.png" style="width: 130px; height: auto;padding: 10px;">
+        `
+    },
+    {
+        title:"Art 44",
+        date:"12/20/2024",
+        content:`
+        <p>Art 1</p>
+        <img src="WebOSReference.png" style="width: 130px; height: auto;padding: 10px;">
+        `
+    }
+]
 
 window.onload = () => {
     // Update time and start interval
@@ -285,6 +335,13 @@ window.onload = () => {
     for (let i = 0; i < content.length; i++) {
         addToSideBar(i)
       }
+
+    //set art gallery content
+    for (let i = 0; i < ArtGalleryContent.length; i++) {
+        setArtGalleryContent(i);
+      }
+    
+
 };
 
 // Function to make elements draggable
@@ -416,6 +473,7 @@ function getNextZIndex() {
 
 function addToSideBar(index){
     var sidebar = document.querySelector("#sidebar");
+
     var note = content[index];
     var newDiv = document.createElement("div");
     newDiv.innerHTML = `
@@ -430,6 +488,7 @@ function addToSideBar(index){
     sidebar.appendChild(newDiv);
 }
 
+
 function setMusicReviewContent(index){
     var musicReviewContent = document.querySelector("#musicReviewContent");
     if (!musicReviewContent){
@@ -437,4 +496,31 @@ function setMusicReviewContent(index){
         return;
     }
     musicReviewContent.innerHTML = content[index].content;
+}
+
+function setArtGalleryContent(index){
+    var artGalleryContent = document.querySelector("#artGalleryContent");
+    if (!artGalleryContent){
+        console.error("Art Gallery Content element not found");
+        return;
+    }
+
+    artGalleryContent.innerHTML = "";
+    //loop through all art items and append them
+    ArtGalleryContent.forEach((artItem, index) => {
+        const newDiv = document.createElement("div");
+
+
+        newDiv.classList.add("art-item");
+        newDiv.setAttribute("data-index", index);
+        
+        newDiv.innerHTML = ArtGalleryContent[index].content;
+        //newDiv.innerHTML = artItem.content;
+        artGalleryContent.appendChild(newDiv);
+    });
+
+    // const newDiv = document.createElement("div");
+    // newDiv.innerHTML = ArtGalleryContent[index].content;
+
+    // artGalleryContent.appendChild(newDiv);
 }
