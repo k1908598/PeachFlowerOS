@@ -350,23 +350,36 @@ window.onload = () => {
     // do the same for art items
     artItems.forEach(artItem => {
         const artId = artItem.getAttribute("data-index");
-        const artElement = document.querySelector(`#${CSS.escape(artId)}`);
+        const artElement = document.querySelector(`#${CSS.escape(artId)}`);//escape because css cannot read id with 0
+
 
         if (artElement) {
             artItem.addEventListener("click", (e) => {
                 e.stopPropagation();
-                handleIconTap(artItem, artElement, e);//or use openWindow, but i dont know which one it is yet
+                openWindow(artItem);
+                //handleIconTap(artItem, artElement, e);//or use openWindow, but i dont know which one it is yet
             });
         }
         else {
             console.error(`Art element not found with data-index: ${artId}`);
         }
-    }
+        const DetailPageClose = document.querySelector("#DetailPageClose");
+        if (DetailPageClose) {
+            DetailPageClose.addEventListener("click", () => {
+                const artDetailPage = document.querySelector("#artDetailPage");
+                if (artDetailPage) {
+                    artDetailPage.style.display = "none";
+                }
+                else {
+                    console.error("Art Detail Page element not found");
+                }
+            });
+        }
 
-    )
-
-
-
+        else {
+            console.error("#DetailPageClose not found");
+        }
+    });
 
 };
 
@@ -477,8 +490,49 @@ function openWindow(element) {
         }
         musicReviewContent.innerHTML = "";
     }
+
+    if (element.classList.contains("art-item")) {
+        const index = element.getAttribute("data-index");
+        openArtDetailPage(index);
+        return;
+    }
+
     console.log(`Window opened: ${element.id}`);
 }
+
+// Function to open art detail page
+function openArtDetailPage(index) {
+    const artDetailPage = document.querySelector("#artDetailPage");
+    const artTitle = document.querySelector("#artTitle");
+    const artDate = document.querySelector("#artDate");
+    const artImage = document.querySelector("#artImage");
+    const artDescription = document.querySelector("#artDescription");
+
+    if (!artDetailPage || !artTitle || !artDate || !artImage || !artDescription) {
+        console.error("Art Detail Page element not found");
+        return;
+    }
+
+    const artwork = ArtGalleryContent[index];
+    if (!artwork) {
+        console.error(`Artwork not found at index: ${index}`);
+        return;
+    }
+
+
+    artTitle.textContent = artwork.title;
+    artDate.textContent = artwork.date;
+    artImage.innerHTML = artwork.content;
+    artDescription.value = "the artist complete this artwork for her sister";
+
+
+    artDetailPage.style.display = "flex";
+    artDetailPage.style.zIndex = getNextZIndex();
+
+    
+}
+
+
 
 // Function to update time
 function updateTime() {
@@ -496,7 +550,7 @@ function getNextZIndex() {
     return maxZIndex + 1;
 }
 
-
+//this function is for music review app
 function addToSideBar(index) {
     var sidebar = document.querySelector("#sidebar");
 
